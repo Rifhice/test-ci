@@ -13,19 +13,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2      
         with:
-          fetch-depth: 0
+          fetch-depth: 100
 
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v4.2
 
-      - name: List all modified files
-        run: |
-          for file in "${{ steps.changed-files.outputs.all_modified_files }}"; do
-            echo "$file was modified"
-          done
+      - uses: marceloprado/has-changed-path@v1
+        id: changed-front
+        with:
+          paths: a/
 
-      - name: Run step when a service has been updated
-        if: contains(steps.changed-files.outputs.all_changed_files, 'a/index.js')
-        run: |
-            echo "Service a was updated"
+      - name: Deploy front
+        if: steps.changed-front.outputs.changed == 'true'
+        run: echo "Service a was updated"
+
+            
