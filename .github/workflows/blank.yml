@@ -36,6 +36,11 @@ jobs:
         if: steps.changed-b.outputs.changed == 'true'
         run: exit 1
 
+
+      - name: Test c
+        if: steps.changed-b.outputs.changed == 'true'
+        run: exit 1
+
   deploy:
     needs: test
     runs-on: ubuntu-latest
