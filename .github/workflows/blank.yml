@@ -16,7 +16,7 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: rifhice/test-github-action
+        uses: rifhice/test-github-action@v1
         with:
           who-to-greet: 'Mona the Octocat'
 
