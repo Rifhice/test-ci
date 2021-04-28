@@ -19,13 +19,22 @@ jobs:
         uses: tj-actions/changed-files@v4.2
 
       - uses: marceloprado/has-changed-path@v1
-        id: changed-front
+        id: changed-a
         with:
           paths: a/
 
-      - name: Deploy front
-        if: steps.changed-front.outputs.changed == 'true'
+      - name: Test a
+        if: steps.changed-a.outputs.changed == 'true'
         run: echo "Service a was updated"
+
+      - uses: marceloprado/has-changed-path@v1
+        id: changed-b
+        with:
+          paths: b/
+
+      - name: Test b
+        if: steps.changed-b.outputs.changed == 'true'
+        run: exit 0
 
   deploy:
     needs: test
