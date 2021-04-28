@@ -14,9 +14,11 @@ jobs:
         with:
           fetch-depth: 100
 
-      - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@v4.2
+      - name: Hello world action step
+        id: hello
+        uses: rifhice/test-github-action
+        with:
+          who-to-greet: 'Mona the Octocat'
 
       - uses: marceloprado/has-changed-path@v1
         id: changed-a
