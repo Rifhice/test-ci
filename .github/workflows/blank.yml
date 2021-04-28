@@ -34,7 +34,7 @@ jobs:
 
       - name: Test b
         if: steps.changed-b.outputs.changed == 'true'
-        run: exit 0
+        run: exit 1
 
   deploy:
     needs: test
