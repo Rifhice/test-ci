@@ -15,6 +15,10 @@ jobs:
         with:
           fetch-depth: 100
 
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v4.2
@@ -27,5 +31,12 @@ jobs:
       - name: Deploy front
         if: steps.changed-front.outputs.changed == 'true'
         run: echo "Service a was updated"
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploying
+        run: echo "Deploying"
 
             
