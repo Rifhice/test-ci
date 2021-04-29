@@ -5,8 +5,14 @@ BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 # Ensure BRANCH_NAME is not empty and is not in a detached HEAD state (i.e. rebase).
 # SKIP_PREPARE_COMMIT_MSG may be used as an escape hatch to disable this hook,
 # while still allowing other githooks to run.
-echo $BRANCH_NAME
-if [ ! -z "$BRANCH_NAME" ] && [ "$BRANCH_NAME" != "HEAD" ] && [ "$SKIP_PREPARE_COMMIT_MSG" != 1 ]; then
+
+if [ -z "$BRANCHES_TO_SKIP" ]; then
+  BRANCHES_TO_SKIP=(master develop)
+fi
+
+BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
+
+if [ ! -z "$BRANCH_NAME" ] && [ "$BRANCH_NAME" != "HEAD" ] && [ "$SKIP_PREPARE_COMMIT_MSG" != 1 ] && ! [[ $BRANCH_EXCLUDED -eq 1 ]]; then
 
   PREFIX=${BRANCH_NAME}
 
