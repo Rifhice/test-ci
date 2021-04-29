@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "push": "git add . && git commit -m \"test\" && git push"
+    "push": "git add . && git commit -m \"test\" && git push",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Rifhice/test-ci/issues"
   },
-  "homepage": "https://github.com/Rifhice/test-ci#readme"
+  "homepage": "https://github.com/Rifhice/test-ci#readme",
+  "devDependencies": {
+    "husky": "^6.0.0"
+  }
 }
