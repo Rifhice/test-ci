@@ -7,7 +7,7 @@ BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
 # while still allowing other githooks to run.
 
 if [ -z "$BRANCHES_TO_SKIP" ]; then
-  BRANCHES_TO_SKIP=(master develop)
+  BRANCHES_TO_SKIP=(main master develop)
 fi
 
 BRANCH_EXCLUDED=$(printf "%s\n" "${BRANCHES_TO_SKIP[@]}" | grep -c "^$BRANCH_NAME$")
