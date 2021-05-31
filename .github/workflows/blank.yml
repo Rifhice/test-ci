@@ -19,32 +19,7 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: rifhice/test-github-action@v35
-        with:
-          who-to-greet: 'Mona the Octocat'
-
-      - uses: marceloprado/has-changed-path@v1
-        id: changed-a
-        with:
-          paths: a/
-
-      - name: Test a
-        if: steps.changed-a.outputs.changed == 'true'
-        run: echo "Service a was updated"
-
-      - uses: marceloprado/has-changed-path@v1
-        id: changed-b
-        with:
-          paths: b/
-
-      - name: Test b
-        if: steps.changed-b.outputs.changed == 'true'
-        run: exit 1
-
-
-      - name: Test c
-        if: steps.changed-b.outputs.changed == 'true'
-        run: exit 1
+        uses: rifhice/test-github-action@v36
 
   deploy:
     needs: test
