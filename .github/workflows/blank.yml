@@ -19,7 +19,7 @@ jobs:
 
       - name: Hello world action step
         id: hello
-        uses: rifhice/test-github-action@v50
+        uses: rifhice/test-github-action@v51
 
   deploy:
     needs: test

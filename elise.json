@@ -1,6 +1,7 @@
 {
   "services": [
     {
+      "name": "A",
       "path": "./a",
       "ci": {
         "file": "./ci.sh"
@@ -10,6 +11,7 @@
       }
     },
     {
+      "name": "B",
       "path": "./b",
       "ci": {
         "file": "./ci.sh"
