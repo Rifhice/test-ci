@@ -1,7 +1,9 @@
 {
   "services": [
     {
-      "path": "/a"
+      "path": "/a",
+      "ci": "/a/ci.sh",
+      "cd": "/a/cd.sh"
     },
     {
       "path": "/b"
