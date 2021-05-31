@@ -3,10 +3,10 @@
     {
       "path": "./a",
       "ci": {
-        "path": "./a/ci.sh"
+        "file": "./ci.sh"
       },
       "cd": {
-        "path": "./a/cd.sh"
+        "file": "./cd.sh"
       }
     },
     {
